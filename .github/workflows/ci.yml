@@ -23,7 +23,7 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: dotnet test
-        run: dotnet test --configuration Release
+        run: dotnet test ${{ env.SOLUTION_FILE }} --configuration Release
 
       - name: dotnet publish
         run: dotnet publish ${{ env.SOLUTION_FILE }} --configuration Release -o artifacts
