@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  DOTNET_VERSION: 8.0
+  DOTNET_VERSION: "8.0.x"
   SOLUTION_FILE: "./GymManagement.sln"
 
 jobs:
