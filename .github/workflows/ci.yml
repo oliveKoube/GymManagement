@@ -7,7 +7,6 @@ on:
 
 env:
   DOTNET_VERSION: "8.0.x"
-  SOLUTION_FILE: "./GymManagement.sln"
 
 jobs:
   build:
@@ -23,10 +22,10 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: dotnet test
-        run: dotnet test ${{ env.SOLUTION_FILE }} --configuration Release
+        run: dotnet test ./GymManagement.sln --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish ${{ env.SOLUTION_FILE }} --configuration Release -o artifacts
+        run: dotnet publish ./GymManagement.sln --configuration Release -o artifacts
 
       - uses: actions/upload-artifact@v4
         with:
