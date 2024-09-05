@@ -25,7 +25,7 @@ on:
 
 jobs:
   build:
-    name: PR Verify
+    name: PR Actions
     runs-on: ubuntu-latest
 
     steps:
