@@ -7,7 +7,7 @@ on:
 
 env:
   DOTNET_VERSION: 8.0
-  SOLUTION_FILE: src/GymManagement.sln
+  SOLUTION_FILE: ./GymManagement.sln
 
 jobs:
   build:
