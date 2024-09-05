@@ -7,7 +7,7 @@ on:
 
 env:
   DOTNET_VERSION: 8.0
-  SOLUTION_FILE: ./GymManagement.sln
+  SOLUTION_FILE: "./GymManagement.sln"
 
 jobs:
   build:
@@ -21,9 +21,6 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
-
-      - name: dotnet restore
-        run: dotnet restore ${{ env.SOLUTION_FILE }}
 
       - name: dotnet test
         run: dotnet test ${{ env.SOLUTION_FILE }} --configuration Release
