@@ -22,7 +22,7 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: dotnet test
-        run: dotnet test ./GymManagement.sln --configuration Release
+        run: dotnet test --configuration Release
 
       - name: dotnet publish
         run: dotnet publish ./GymManagement.sln --configuration Release -o artifacts
