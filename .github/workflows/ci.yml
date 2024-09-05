@@ -7,6 +7,7 @@ on:
 
 env:
   DOTNET_VERSION: "8.0.x"
+  SOLUTION_PATH: "./GymManagement.sln"
 
 jobs:
   build:
@@ -21,11 +22,17 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
+      - name: dotnet restore
+        run: dotnet restore ${{ env.SOLUTION_PATH }}
+
+      - name: Build
+        run: dotnet build ${{ env.SOLUTION_PATH }} --configuration Release --no-restore
+
       - name: dotnet test
-        run: dotnet test --configuration Release
+        run: dotnet test ${{ env.SOLUTION_PATH }} --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish ./GymManagement.sln --configuration Release -o artifacts
+        run: dotnet publish ${{ env.SOLUTION_PATH }} --configuration Release -o artifacts
 
       - uses: actions/upload-artifact@v4
         with:
